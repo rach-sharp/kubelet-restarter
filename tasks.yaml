@@ -1,0 +1,23 @@
+- name: kubelet restarter
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: ensure bodge script present
+      template:
+        src: ./scripts/kubelet_restarter.sh
+        dest: ~/kubelet_restarter.sh
+        mode: 0700
+    - name: ensure service file for running the script is present
+      template:
+        src: ./scripts/kubelet_restarter.service
+        dest: /etc/systemd/system/kubelet_restarter.service
+    - name: ensure timer for running the script is present
+      template:
+        src: ./scripts/kubelet_restarter.timer
+        dest: /etc/systemd/system/kubelet_restarter.timer
+    - name: start the timer
+      systemd:
+        name: kubelet_restarter.timer
+        state: started
+        enabled: yes

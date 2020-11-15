@@ -1,0 +1,1 @@
+ansible-playbook tasks.yaml -i inventory.yaml --private-key=~/.ssh/<private key with access>

@@ -1,0 +1,7 @@
+[Unit]
+Description=Kubelet Restarter
+After=kubelet.service
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/bash /root/kubelet_restarter.sh
