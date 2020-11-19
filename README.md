@@ -18,7 +18,7 @@ How to use:
 
 - [Install Ansible Playbooks](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 - Configure your `inventory.yaml` (use `example.yaml` as a reference)
-- `run_playbook.sh`
+- `run_playbook.sh --private-key=~/.ssh/<private key with access to inventory nodes>`
 
 
 How it works:
