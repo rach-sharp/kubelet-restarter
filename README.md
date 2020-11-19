@@ -1,6 +1,6 @@
 ### Workaround for `kubelet` reporting `use of closed network connection`
 
-https://github.com/kubernetes/kubernetes/issues/87615 details a bug which causes Kubernetes Nodes to enter `NotReady` and get stuck permanently.
+https://github.com/kubernetes/kubernetes/issues/87615 details a bug which causes Kubernetes Nodes to enter `NotReady` and get stuck permanently, on k8s clusters from versions `1.17.x` onwards.
 
 Symptoms:
 
@@ -10,7 +10,7 @@ Symptoms:
 
 Fix:
 
-- Possibly an actual fix is on the way, the linked thread mentions bug reports in `http.go` etc.
+- Possibly an actual fix is on the way (maybe in k8s release `1.20.x`?), the linked thread mentions bug reports in `http.go` etc.
 - This bodge restarts the kubelet when it sees the symptomatic error log (adapted from https://github.com/kubernetes/kubernetes/issues/87615#issuecomment-609413225). You need SSH access and Hostnames / IP Addresses for all your Kubernetes Nodes.
 
 
